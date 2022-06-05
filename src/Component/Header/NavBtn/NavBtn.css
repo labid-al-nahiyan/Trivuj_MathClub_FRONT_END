@@ -1,0 +1,14 @@
+.open{
+    display:inline-block;
+}
+.close{
+    display: none;
+}
+.menu-list{
+    list-style: none;
+    padding: 20px;
+    margin-right: 75px;
+    padding-top: 0;
+    background-color: #6077d0;
+    font-size: 25px;    
+}

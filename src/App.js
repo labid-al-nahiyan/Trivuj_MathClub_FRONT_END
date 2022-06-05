@@ -1,10 +1,12 @@
 import './App.css';
-import Header from './Component/Header/Header';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './Component/Home/Home'
+import Home from './Component/Home/Home';
 
 function App() {
   return (
-    <div className='container'>
-      <Header></Header>
+    <div>
+      <Home></Home>
     </div>
   );
 }
