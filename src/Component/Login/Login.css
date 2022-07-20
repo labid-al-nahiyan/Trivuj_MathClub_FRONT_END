@@ -1,0 +1,50 @@
+.form{
+    margin-top: 100px;
+    padding: 40px;
+    display: inline-block;
+    border: 1px solid black;
+
+}
+body {
+    text-align: center;
+}
+
+.input-field{
+    border: 0px;
+    border-bottom: 2px solid gray;
+    color: black;
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    font-size: 15px;
+}
+.input-field:focus{
+    outline: none;
+}
+.orangeBtn{
+    background-color:#19103F;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 5px;
+}
+.orangeBtn:hover{
+    background-color: #2F216A;
+}
+.stateChangebtn{
+    background-color: white;
+    border: 0;
+    color: #19103F;
+    text-decoration: underline;
+}
+.google{
+    margin-top: 10px;
+}
+.google button{
+    color:black;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+}

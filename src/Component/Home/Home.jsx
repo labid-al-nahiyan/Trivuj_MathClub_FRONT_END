@@ -5,7 +5,8 @@ import Header from '../Header/Header';
 const Home = () => {
     return (
         <div className='container-fluid'>
-            <Header></Header>
+            
+            <h1>Hello home </h1>
         </div>
     );
 };

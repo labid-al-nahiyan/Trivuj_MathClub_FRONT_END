@@ -4,6 +4,7 @@
 .close{
     display: none;
 }
+
 .menu-list{
     list-style: none;
     padding: 20px;
@@ -11,4 +12,8 @@
     padding-top: 0;
     background-color: #6077d0;
     font-size: 25px;    
+}
+.link{
+    color : white;
+
 }

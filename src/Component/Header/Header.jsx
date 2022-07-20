@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <div className="container-fluid">
             <div className="header">
-                <div>
+                <div className='logo'>
                     <HeaderLogo></HeaderLogo>
                 </div>
                 <div>

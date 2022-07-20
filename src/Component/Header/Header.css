@@ -1,12 +1,17 @@
 .header{
     background-color: #374785;
     color: white;
-    padding: 20px;
+    padding: 10px;
     display: grid;
     grid-template-columns: repeat(2,50%);
-    height: 100px;
+    height: 80px;
+    
 }
-
+.logo{
+    display: grid;
+    justify-items: start;
+    
+}
 
 .navSide{
     display: grid;
