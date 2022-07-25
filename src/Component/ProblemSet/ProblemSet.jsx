@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 const ProblemSet = () => {
     const [names,setNames] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:3010/about/avro/labid')
+        fetch('http://localhost:3010/')
         .then(res=>res.json())
         .then(data=>{
 

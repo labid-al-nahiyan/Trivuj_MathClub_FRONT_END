@@ -13,6 +13,7 @@ import Login from './Component/Login/Login';
 import ProblemSet from './Component/ProblemSet/ProblemSet';
 import { createContext, useState } from 'react';
 import Contest from './Component/Contest/Contest';
+import ProtectedRoute from './Component/ProtectedRoute/ProtectedRoute';
 export   const UserContext=createContext();
 
 function App() {
@@ -28,8 +29,11 @@ function App() {
         <Header></Header>
 
         <Routes>
-          
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={
+              <ProtectedRoute>
+                <Home/>
+              </ProtectedRoute>
+          }/>
 
           <Route path='/login' element={<Login/>}/>
           
