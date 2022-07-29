@@ -1,9 +1,8 @@
 .header{
-    background-color: #374785;
+    background-color: #404e52;
     color: white;
     padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(2,50%);
+    
     height: 80px;
     
 }

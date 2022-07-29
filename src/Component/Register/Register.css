@@ -1,6 +1,14 @@
 .form{
+    margin: 100px;
+    padding: 40px;
     display: inline-block;
+    border: 1px solid black;
+
 }
+body {
+    text-align: center;
+}
+
 .input-field{
     border: 0px;
     border-bottom: 2px solid gray;
@@ -11,30 +19,23 @@
     font-size: 15px;
 }
 .input-field:focus{
-    border: 1px solid black;
     outline: none;
 }
-
-.enterBtn{
-    background-color:rgb(50, 65, 50);
-    color: whitesmoke;
-    padding: 5px;
-    height: 60px;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
+.orangeBtn{
+    background-color:#19103F;
+    color: white;
     padding: 5px;
     border-radius: 5px;
     width: 80%;
     margin-bottom: 5px;
-    border: 0;
 }
-.enterBtn:hover{
-    background-color: #988dc6;
+.orangeBtn:hover{
+    background-color: #2F216A;
 }
 .stateChangebtn{
     background-color: white;
     border: 0;
-    color: #c8c0eb;
+    color: #19103F;
     text-decoration: underline;
 }
+

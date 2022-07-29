@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import './Login.css';
+import React, { useContext , useState } from 'react';
+import './Register.css';
 import { UserContext } from '../../App';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
+const Register = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
     const [goForLogin, setGoForLogin] = useState(false)
     const [aboutPassword,setAboutPassword]=useState('')
     const [passConfirmation,setPassConfirmation]=useState('')
-    const [userInfo, setUserInfo] = useState({});
     let navigate  = useNavigate();
-    let {state} = useLocation();
+    let location = useLocation();
     
     
     const handleChange = (event) => {
@@ -41,14 +39,14 @@ const Login = () => {
             const newUserInfo = { ...loggedInUser }
             newUserInfo[event.target.name] = event.target.value;
             setLoggedInUser(newUserInfo)
-            setUserInfo(newUserInfo)
         }
     }
 
     const CreateUser = (event)=>{
         event.preventDefault();
-        console.log(state);
-        fetch('http://localhost:3010/member/create', {
+        console.log(loggedInUser);
+        try {
+            fetch('http://localhost:3010/member/create', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -56,21 +54,27 @@ const Login = () => {
             },
             body: JSON.stringify(loggedInUser)
             })
-            .then(res=>res.json())
+            .then((res)=>{
+                res.json()
+                console.log('hello');
+            })
             .then(data=>{
                 console.log(data)
+                console.log('hello2')
+                navigate(location?.state?.from || '/', {replace:true})
             })
+        } catch (error) {
+            console.log(error);
+        }
             
         
     }
-    const LogInUser = ()=>{
-        console.log("login");
-    }
+    
 
     return (
         <div>
             <div className="form-container text-center">
-                <div>
+                
                     <div className="form text-center">
                         <form action="">
 
@@ -85,19 +89,19 @@ const Login = () => {
 
 
                             {!goForLogin && <input type="submit" value="Create Account" onClick={CreateUser} className="orangeBtn" /> } 
-                            {goForLogin && <input type="submit" value="Log In" onClick={LogInUser} className="orangeBtn" /> }
+                            {/* {goForLogin && <input type="submit" value="Log In" onClick={LogInUser} className="orangeBtn" /> } */}
 
 
-                            {!goForLogin &&<p>Already has an account?<button className="stateChangebtn" onClick={() => { setGoForLogin(true) }}>Log in</button> </p>}
-                            {goForLogin && <p>Don't have a account?<button className="stateChangebtn" onClick={() => { setGoForLogin(false) }}>Create account</button></p>}
+                            {/* {!goForLogin &&<p>Already has an account?<button className="stateChangebtn" onClick={() => { setGoForLogin(true) }}>Log in</button> </p>} */}
+                            {/* <p>Don't have a account?<button className="stateChangebtn" onClick={() => { setGoForLogin(false) }}>Create account</button></p> */}
 
                         </form>
                     </div>
                     
                 </div>
-            </div>
+            
         </div>
     );
 };
 
-export default Login;
+export default Register;

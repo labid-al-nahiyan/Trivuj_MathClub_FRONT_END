@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
 
-const Contest = () => {
+const Campaign = () => {
     return (
         <div>
-            <NavBar></NavBar>
-            <h1>COntest</h1>
+            <NavBar></NavBar>>
+            <h1>Campaign</h1>
         </div>
     );
 };
 
-export default Contest;
+export default Campaign;

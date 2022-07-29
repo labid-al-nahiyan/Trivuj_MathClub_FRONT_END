@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from '../Header/Header';
+import TopComp from './TopComp/TopComp';
 
 
 const Home = () => {
     return (
-        <div className='container-fluid'>
+        <div>
             
-            <h1>Hello home </h1>
+            <TopComp></TopComp>
         </div>
     );
 };
