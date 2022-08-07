@@ -73,32 +73,35 @@ const Register = () => {
 
     return (
         <div>
-            <div className="form-container text-center">
-                
+            <div className="form-container text-center">  
                     <div className="form text-center">
                         <form action="">
 
                             <input className="input-field" onChange={handleChange} name="name" type="text" placeholder="User Name" required/>
-                            {!goForLogin && <input className="input-field" onChange={handleChange} name="firstName" type="text" placeholder="First Name" required/>}
-                            {!goForLogin && <input className="input-field" onChange={handleChange} name="lastName" type="text" placeholder="Last Name" required/>}
-
-                            <input className="input-field" type="password" onChange={handleChange} name="password" placeholder="Password"required />
-                            <small style={{color:'red'}}>{aboutPassword}</small>
-                            {!goForLogin && <input className="input-field" onChange={handleChange}  name="confirmPass" type="password" placeholder="Confirm Passsword" required />}
-                            {<small style={{color:'red'}}>{passConfirmation}</small>}
-
-
-                            {!goForLogin && <input type="submit" value="Create Account" onClick={CreateUser} className="orangeBtn" /> } 
-                            {/* {goForLogin && <input type="submit" value="Log In" onClick={LogInUser} className="orangeBtn" /> } */}
-
-
-                            {/* {!goForLogin &&<p>Already has an account?<button className="stateChangebtn" onClick={() => { setGoForLogin(true) }}>Log in</button> </p>} */}
-                            {/* <p>Don't have a account?<button className="stateChangebtn" onClick={() => { setGoForLogin(false) }}>Create account</button></p> */}
-
+                            <div className='fullNameContainer'>
+                                <input className="input-field" onChange={handleChange} name="firstName" type="text" placeholder="First Name" required/>
+                                <input className="input-field" onChange={handleChange} name="lastName" type="text" placeholder="Last Name" required/>
+                            </div>
+                            <div className='passwordContainer'>
+                                <div>
+                                    <input className="input-field" type="password" onChange={handleChange} name="password" placeholder="Password"required />
+                                    <small style={{color:'red'}}>{aboutPassword}</small>
+                                </div>
+                                <div>
+                                    <input className="input-field" onChange={handleChange}  name="confirmPass" type="password" placeholder="Confirm Passsword" required />
+                                    <small style={{color:'red'}}>{passConfirmation}</small>
+                                </div>
+                            </div>
+                            <input type="submit" value="Create Account" onClick={CreateUser} className="createBtn" /> 
+       
                         </form>
-                    </div>
-                    
-                </div>
+                    </div> 
+
+                    <div className='form-design'>
+                        <h4>Welcome to Our Club</h4>
+                        <h5>Learn Math With Fun</h5>
+                    </div>   
+            </div>
             
         </div>
     );

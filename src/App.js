@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 
 import Header from './Component/Header/Header';
-
 import ProblemSet from './Component/ProblemSet/ProblemSet';
 import { createContext, useState } from 'react';
 import Contest from './Component/Contest/Contest';
@@ -18,12 +17,21 @@ import Register from './Component/Register/Register';
 import Campaign from './Component/Campaign/Campaign';
 import Blog from './Component/Blog/Blog';
 import Library from './Component/Library/Library';
+import Profile from './Component/Profile/Profile';
+import Footer from './Component/Footer/Footer';
+import './App.css'
+import AddProblem from './Component/AddProblem/AddProblem';
 export   const UserContext=createContext();
+
 
 function App() {
 
   const [loggedInUser, setLoggedInUser]=useState(JSON.parse(window.localStorage.getItem('token')));
-  
+
+  const [color, changeColor] = useState("white");
+  // const [color, changeColor] = useState("#ffffff");
+
+  document.body.style.backgroundColor = color;
 
   return (
     <div>
@@ -34,9 +42,7 @@ function App() {
         <Header></Header>
 
         <Routes>
-          <Route path='/' element={
-              <Home></Home>
-          }/>
+          <Route path='/' element={<Home></Home>}/>
 
           <Route path='/login' element={<Register/>}/>
           
@@ -50,9 +56,16 @@ function App() {
           
           <Route path='/library' element={<Library></Library>}/>
 
+          <Route path='/addProblem' element={<AddProblem></AddProblem>}/>
+
+          <Route path='/profile/:id' element={<Profile/>}></Route>
+
           <Route path="*" element={<p>There's nothing here: 404!</p>} />    
 
         </Routes>
+
+        <Footer></Footer>
+
       </Router>
 
       </UserContext.Provider>

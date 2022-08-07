@@ -60,7 +60,7 @@ const LogIn = ({state,setState}) => {
             const data = await res.json()  
             
             
-            
+            console.log(data)
             if(data.length === 0){
                 setWrongUser('Wrong Username or password')
             }
@@ -80,14 +80,15 @@ const LogIn = ({state,setState}) => {
     return (
         
         <div>
-            <div className="form-container">
-                <div className="form">
+            <div className="form-login-container">
+                <div className="form-login" style={{border:'0'}}>
                     <form>
-                        <input className="input-field" onChange={handleChange} name="name" type="text" placeholder="User Name" required/>
-                        <input className="input-field" type="password" onChange={handleChange} name="password" placeholder="Password"required />
+                        <input className="login-input-field" onChange={handleChange} name="name" type="text" placeholder="User Name" required/>
+                        <input className="login-input-field" type="password" onChange={handleChange} name="password" placeholder="Password"required />
+                        <small style={{color:'red'}}>{wrongUser}</small>
                         <input className="enterBtn"  type="submit" value="Log in" onClick={LogInUser}  /> <br></br>
                     {/* {goForLogin && <input type="submit" value="Log In" onClick={LogInUser} className="orangeBtn" /> } */}
-                        <small style={{color:'red'}}>{wrongUser}</small>
+                        
                     </form>
                 </div>
             </div>

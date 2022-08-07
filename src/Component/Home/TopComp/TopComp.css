@@ -2,17 +2,17 @@
     border: 1px solid black;
     color: white;
     display: grid;
-    height: 400px;
+    height: 660px;
     grid-template-columns: 60% 40%;
-    background-image: url('../../../Image/topView.png') ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #ffffff;  
+        /* background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; */
 }
 .btnState{
     color: white;
     display: grid;
-    height: 400px;
+    height: 660px;
     grid-template-columns: repeat(2,40%);
     justify-content: center;
     align-content: center;
@@ -35,7 +35,7 @@
     border: 0;
 }
 .topRight{
-    background-color: rgba(255, 255, 255,.3);
+    background-color: rgba(84, 84, 198, 0.3);
 }
 .enterBtn:hover{
     background-color: #6d7f78;

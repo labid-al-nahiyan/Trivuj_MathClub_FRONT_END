@@ -18,13 +18,13 @@ const NavBar = () => {
         <div className='navBarContainer'>
             <div className="">
                     <ul className='menu'>
+                        <Link to ='/' style={{ textDecoration: 'none'}}><li className='list'>Home</li></Link> 
                        <Link to ='/problemset' style={{ textDecoration: 'none'}}><li className='list'>Problem Set</li></Link> 
                        <Link to ='/campaign' style={{ textDecoration: 'none' }}><li className='list'>Campaign</li></Link> 
                        <Link to ='/contest'style={{ textDecoration: 'none' }}><li className='list'>Contest</li></Link> 
                        <Link to ='/post'style={{ textDecoration: 'none' }}><li className='list'>Post</li></Link> 
                        <Link to ='/blog' style={{ textDecoration: 'none' }}><li className='list'>Blog</li></Link> 
                     </ul>
-                
             </div>
             <div >
                 <ul className='menu menu-1'>
