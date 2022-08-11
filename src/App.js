@@ -7,7 +7,6 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-
 import Header from './Component/Header/Header';
 import ProblemSet from './Component/ProblemSet/ProblemSet';
 import { createContext, useState } from 'react';
@@ -21,12 +20,18 @@ import Profile from './Component/Profile/Profile';
 import Footer from './Component/Footer/Footer';
 import './App.css'
 import AddProblem from './Component/AddProblem/AddProblem';
+import AddCampaign from './Component/AddCampaign/AddCampaign';
+import Post from './Component/Post/Post';
+import AddPost from './Component/AddPost/AddPost';
+import LeaderBoard from './Component/LeaderBoard/LeaderBoard'
+
 export   const UserContext=createContext();
 
 
 function App() {
 
   const [loggedInUser, setLoggedInUser]=useState(JSON.parse(window.localStorage.getItem('token')));
+
 
   const [color, changeColor] = useState("white");
   // const [color, changeColor] = useState("#ffffff");
@@ -42,6 +47,7 @@ function App() {
         <Header></Header>
 
         <Routes>
+          
           <Route path='/' element={<Home></Home>}/>
 
           <Route path='/login' element={<Register/>}/>
@@ -59,6 +65,14 @@ function App() {
           <Route path='/addProblem' element={<AddProblem></AddProblem>}/>
 
           <Route path='/profile/:id' element={<Profile/>}></Route>
+
+          <Route path='/addCampaign' element={<AddCampaign/>}></Route>
+
+          <Route path='/post' element={<Post/>}></Route>
+
+          <Route path='/addPost' element={<AddPost/>}></Route>
+
+          <Route path='/leaderboard' element={<LeaderBoard></LeaderBoard>}></Route>
 
           <Route path="*" element={<p>There's nothing here: 404!</p>} />    
 

@@ -1,0 +1,36 @@
+.postCard-container{
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 0 5% 0 5% ;
+    text-align: left;
+}
+.post-header{
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.post-description{
+    padding: 0 10px 0 10px ;
+}
+.post-footer{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    text-align: center;
+    height: 40px;
+}
+.post-vote{
+    align-items:center;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.post-comment{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+#post-comment-link{
+    text-decoration: none;
+    color: black;
+    border: 0;
+}
+#post-comment-link:focus{
+    outline: none;
+}

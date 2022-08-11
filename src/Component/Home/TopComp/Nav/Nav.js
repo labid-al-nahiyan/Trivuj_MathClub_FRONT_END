@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './Nav.css'
 
 const Nav = () => {
+    const logout = ()=>{
+        window.localStorage.clear();
+        Navigate('/', {replace:true});
+        window.location.reload();
+    }
     return (
         <div>
             <div className='state3-top'>
@@ -10,20 +15,21 @@ const Nav = () => {
                     <div className='navDiv nav1'> 
                         <Link to = '/problemset'><button className='topNavBtn'>Problemset</button></Link>
                     </div>
-                    <div className='navDiv nav1'>
-                        <Link to = '/contest'><button className='topNavBtn'>Contest</button></Link>
-                    </div>
                     <div className='navDiv nav1'> 
                         <Link to = '/campaign'><button className='topNavBtn'>Campaign</button></Link>
                     </div>
+                    <div className='navDiv nav1'>
+                        <Link to = '/leaderboard'><button className='topNavBtn'>LeaderBoard</button></Link>
+                    </div>
+                    
                 </div>
 
                 <div className="navContain">
                     <div className='navDiv nav2'>
-                        <Link to = '/blog'><button className='topNavBtn'>Blog</button></Link>
+                        <Link to = '/post'><button className='topNavBtn'>Post</button></Link>
                     </div>
                     <div className='navDiv nav2'>
-                        <Link to = '/library'><button className='topNavBtn'>Library</button></Link>
+                        <Link to = '/' onClick={logout}><button className='topNavBtn'>Log Out</button></Link>
                     </div>
                 </div>
                 

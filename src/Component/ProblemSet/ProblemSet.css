@@ -1,6 +1,7 @@
 .problem-container{
     display: grid;
     grid-template-columns: 20% auto;
+    min-height: 650px;
 }
 .filterBtn{
     margin: 5px;
@@ -18,7 +19,7 @@
     background-color: #ce634e;
 }
 .problem-filter{
-    border-right: 1px solid white;
+    border-right: 1px solid black;
 }
 .problem-select{
     display: flex;

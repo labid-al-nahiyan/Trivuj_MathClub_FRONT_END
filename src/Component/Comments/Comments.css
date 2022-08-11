@@ -1,0 +1,16 @@
+.comment-container{
+    margin: 10px;
+    padding-left: 20px;
+}
+.single-comment{
+    border-bottom: 1px solid gray;
+}
+.addComment-container{
+    display: flex;
+}
+.addComment-field{
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 20px;
+}

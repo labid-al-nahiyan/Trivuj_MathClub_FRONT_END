@@ -1,0 +1,33 @@
+.post-container{
+    display: grid;
+    grid-template-columns: 20% auto;
+    min-height: 640px;
+    margin-top: 10px;
+}
+.post-nav{
+    border-right: 1px solid black;
+}
+.post-nav-btns{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+.postBtn{
+    width: 100%;
+    background-color: #F57359;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    border: 0;
+
+}
+.postBtn:hover{
+    background-color: #ce634e;
+    color: white;
+    border: 0;
+}
+.show-post{
+    
+    
+}

@@ -2,41 +2,49 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from '../../App';
 import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
-import './AddProblem.css'
+import './AddPost.css'
+import { useEffect } from 'react';
 
-const AddProblem = () => {
+const AddPost = () => {
 
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    const [addProblem,setAddProblem] = useState([]);
+    const [addPost,setAddPost] = useState([]);
     let navigate  = useNavigate();
     let location = useLocation();
 
+
+    
+    useEffect(()=>{
+        const newAdd = { ...addPost }
+        newAdd['organizerID'] = loggedInUser?.ID;
+        newAdd['uploadTime'] = Date().toLocaleString()
+
+        
+        setAddPost(newAdd)
+    },[])
     const handleChange = (event)=>{
 
         console.log(event.target.name , event.target.value);
-        const newAdd = { ...addProblem }
+        const newAdd = { ...addPost }
             newAdd[event.target.name] = event.target.value;
-            setAddProblem(newAdd)
+            setAddPost(newAdd)
     }
 
     const handleSubmit = (event)=>{
         event.preventDefault();
-        const newAdd = { ...addProblem }
-        newAdd['organizerID'] = loggedInUser?.ID;
-        setAddProblem(newAdd)
 
-        console.log(addProblem);  
+        console.log(addPost);  
         
         
         try {
-            fetch('http://localhost:3010/problemset/addProblem', {
+            fetch('http://localhost:3010/post/create', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(addProblem)
+            body: JSON.stringify(addPost)
             })
             .then((res)=>{
                 res.json()
@@ -55,35 +63,35 @@ const AddProblem = () => {
     return (
         <div>
             <NavBar></NavBar>
-            <div className='addProblem-container'>
+            <div className='addPost-container'>
                 <div>
 
                 </div>
-                <div className='addProblem-form'>
-                    <div>
-                        <h1>Create a Problem </h1>
+                <div className='addPost-form'>
+                    <div className='post-head'>
+                        <h2>Ask a Question </h2>
+                        <hr />
                     </div>
 
                     <div className='form'>
                         
-                        <form action="" className='addProblem-form'>
-                            <input type="text" name="title" id="title" onChange={handleChange}  placeholder='Enter Title'/>
+                        <form action="" className='addPost-form'>
+                            <label htmlFor="title"><h3>Title</h3> </label>
+                            <input type="text" name="title" id="title" onChange={handleChange}  placeholder='Enter Title' required/>
                             
-                            <textarea name="description" id="area" cols="100" rows="5" placeholder='Describe Your problem in details' onChange={handleChange}></textarea>
+                            <label htmlFor="area"><h3>Description</h3> </label>
+                            <textarea name="description" id="area" cols="100" rows="5" placeholder='Describe Your question in details (in 1000 words)' onChange={handleChange} required></textarea>
                             
-                            <label htmlFor='img'>Select image for problem</label>
-                            <input type="file" name="image" id="img"  onChange={handleChange}  placeholder="Choose Image "/>
-                            
-                            <input type="submit" value="Submit" className='problemBtn' onClick={handleSubmit} />
+                            <input type="submit" value="Submit" className='createpostBtn' onClick={handleSubmit} />
                         </form>
                     </div>
                 </div>
                 <div>
-
+                  
                 </div>
             </div>
         </div>
     );
 };
 
-export default AddProblem;
+export default AddPost;

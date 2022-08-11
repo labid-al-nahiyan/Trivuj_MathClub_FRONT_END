@@ -1,0 +1,25 @@
+.campaign-container{
+    display: grid;
+    grid-template-columns: 20% auto;
+    min-height: 540px;
+}
+.campaign-left{
+    background-color: #ffffff;
+    border-right: 1px solid black;
+}
+.campaign-right{
+    display: scroll;
+}
+.CampaignBtn{
+    height: 50px;
+    width: 100%;
+    background-color: #F57359;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    border: 1px solid white;
+    border: 0;
+}
+.CampaignBtn:hover{
+    background-color: #ce634e;
+}

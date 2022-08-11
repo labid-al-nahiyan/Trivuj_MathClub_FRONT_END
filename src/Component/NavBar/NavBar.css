@@ -1,7 +1,7 @@
 .navBarContainer{
     display: grid;
     grid-template-columns: 70% 30%;
-    background-color: rgb(237, 232, 232);
+    background-color: #ce634e;
     height: 40px;
     
    
@@ -21,7 +21,7 @@
 
 .list{
     padding : 5px 10px 5px 10px;
-    background-color: rgb(237, 232, 232);
+    background-color: #ce634e;
     color: black;
    
 }

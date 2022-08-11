@@ -1,0 +1,48 @@
+.addProblem-container{
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+}
+.addProblem-form{
+    border: 1px solid black;
+    margin: 20px;
+}
+
+.form{
+    
+    display: inline-block;
+    padding: 40px;
+    border: 0;
+
+}
+
+.addProblem-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 0;
+}
+
+#title{
+    margin: 10px;
+    height: 40px;
+    font-size: 20px;
+}
+
+#area{
+    margin: 10px;
+    padding: 10px;
+}
+#img{
+    margin: 10px;
+    
+}
+.problemBtn{
+    background-color:#27186b;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    width: 40%;
+    margin: 15px;
+    height: 45px;
+}
