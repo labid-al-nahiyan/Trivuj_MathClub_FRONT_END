@@ -1,5 +1,5 @@
 import './App.css';
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Component/Home/Home'
 import Home from './Component/Home/Home';
 import {
@@ -24,6 +24,9 @@ import AddCampaign from './Component/AddCampaign/AddCampaign';
 import Post from './Component/Post/Post';
 import AddPost from './Component/AddPost/AddPost';
 import LeaderBoard from './Component/LeaderBoard/LeaderBoard'
+import Admin from './Component/Admin/Admin';
+import AdminHome from './Component/Admin/AdminHome/AdminHome';
+import Statement from './Component/ProblemStatement/Statement';
 
 export   const UserContext=createContext();
 
@@ -50,6 +53,10 @@ function App() {
           
           <Route path='/' element={<Home></Home>}/>
 
+          <Route path='/admin' element={<Admin></Admin>}></Route>
+
+          <Route path='/adminHome' element={<AdminHome></AdminHome>}/>
+
           <Route path='/login' element={<Register/>}/>
           
           <Route path='/problemset' element={<ProblemSet/>}/>          
@@ -63,6 +70,8 @@ function App() {
           <Route path='/library' element={<Library></Library>}/>
 
           <Route path='/addProblem' element={<AddProblem></AddProblem>}/>
+
+          <Route path='/problemset/problem/:id' element={<Statement></Statement>}/>
 
           <Route path='/profile/:id' element={<Profile/>}></Route>
 

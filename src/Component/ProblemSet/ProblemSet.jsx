@@ -4,11 +4,35 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 import NavBar from '../NavBar/NavBar';
+import Problem from '../Problem/Problem'
 import './ProblemSet.css'
 
-const ProblemSet = () => {
+const ProblemSet =() => {
     const [tag,setTag] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [problems, setProblems] = useState([])
+
+
+    
+    useEffect(() => {
+        const fetchData = async () => {
+          const res = await fetch('http://localhost:3010/problemset/getProblem');
+          const data = await res.json();
+
+          setProblems(data);
+          console.log(data);
+          return data;
+        }
+
+      
+        // call the function
+         fetchData()
+          // make sure to catch any error
+          .catch(console.error);;
+      
+    }, [])
+
+      
     const handleChange = (event) => {        
         console.log(event.target.name, event.target.value)
         const newTag = { ...tag }
@@ -23,7 +47,7 @@ const ProblemSet = () => {
     return (
         <div>
             <NavBar></NavBar>
-            <h1>Problems</h1>
+            <h1 style={{height:'100px',margin:'20px'}}>Problems</h1>
             <div className='problem-container'>
                 <div className='problem-filter'>
 
@@ -40,10 +64,13 @@ const ProblemSet = () => {
 
                      </div>
                     <input type="submit" value="Search" onClick={filterProblem} className="filterBtn" /> 
-                    {loggedInUser?.MEMBER_TYPE !== "student" && <Link to='/addProblem'><input type="submit" value="Add Problem" onClick={filterProblem} className="filterBtn" /></Link> }
                 </div>
                 <div className='problem-show'>
-
+                    {
+                        problems.map((problem)=>{
+                           return  <Problem problem={problem}></Problem>
+                        })
+                    }
                 </div>
             </div>
             

@@ -82,6 +82,7 @@ const Register = () => {
                                 <input className="input-field" onChange={handleChange} name="firstName" type="text" placeholder="First Name" required/>
                                 <input className="input-field" onChange={handleChange} name="lastName" type="text" placeholder="Last Name" required/>
                             </div>
+                            
                             <div className='passwordContainer'>
                                 <div>
                                     <input className="input-field" type="password" onChange={handleChange} name="password" placeholder="Password"required />
@@ -91,6 +92,20 @@ const Register = () => {
                                     <input className="input-field" onChange={handleChange}  name="confirmPass" type="password" placeholder="Confirm Passsword" required />
                                     <small style={{color:'red'}}>{passConfirmation}</small>
                                 </div>
+                            </div>
+                            <div>
+                                <input className="input-field" onChange={handleChange} name="email" type="email" placeholder="Enter your Email" required/>
+                                <input className="input-field" onChange={handleChange} name="phone" type="number" placeholder="Enter your phoneNo" required/>
+
+                                {/* <small style={{color:'red'}}>{aboutPassword}</small> */}
+                            </div>
+                            <div>
+                                <input type="date" name="DOB" onChange={handleChange} className='input-field' placeholder='Enter your birthdate' />
+                            </div>
+                            <div>
+                                <input type="text" name="Institution" onChange={handleChange} className='input-field' placeholder='Enter your Institution' />
+                                <input className="input-field" onChange={handleChange} name="classNo" type="text" placeholder="Enter your Class" required/>
+                                <input className="input-field" onChange={handleChange} name="city" type="text" placeholder="Enter your CIty" required/>
                             </div>
                             <input type="submit" value="Create Account" onClick={CreateUser} className="createBtn" /> 
        

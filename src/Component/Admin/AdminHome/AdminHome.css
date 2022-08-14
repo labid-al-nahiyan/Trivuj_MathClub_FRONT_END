@@ -1,0 +1,22 @@
+.adminHome-container{
+    display: grid;
+    grid-template-columns: 20% auto;
+    min-height: 650px;
+}
+.adminHome-nav{
+    display: inline block;
+    border-right: 1px solid black;
+}
+.AdminBtn{
+    height: 50px;
+    width: 100%;
+    background-color: #F57359;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    border: 1px solid white;
+    border: 0;
+}
+.AdminBtn:hover{
+    background-color: #ce634e;
+}

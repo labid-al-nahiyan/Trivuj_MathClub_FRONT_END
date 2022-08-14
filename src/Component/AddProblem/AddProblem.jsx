@@ -6,7 +6,6 @@ import './AddProblem.css'
 
 const AddProblem = () => {
 
-
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const [addProblem,setAddProblem] = useState([]);
     let navigate  = useNavigate();
@@ -54,11 +53,8 @@ const AddProblem = () => {
 
     return (
         <div>
-            <NavBar></NavBar>
             <div className='addProblem-container'>
-                <div>
-
-                </div>
+                
                 <div className='addProblem-form'>
                     <div>
                         <h1>Create a Problem </h1>
@@ -67,20 +63,32 @@ const AddProblem = () => {
                     <div className='form'>
                         
                         <form action="" className='addProblem-form'>
-                            <input type="text" name="title" id="title" onChange={handleChange}  placeholder='Enter Title'/>
+
+                            <label htmlFor='title'>Title:</label>
+                            <input type="text" name="title" id="title" onChange={handleChange}  placeholder='Enter Title' required/>
                             
-                            <textarea name="description" id="area" cols="100" rows="5" placeholder='Describe Your problem in details' onChange={handleChange}></textarea>
+                            <label htmlFor='description'>Description:</label>
+                            <textarea name="description" id="description" cols="100" rows="5" placeholder='Describe Your problem in details' onChange={handleChange} required></textarea>
                             
-                            <label htmlFor='img'>Select image for problem</label>
-                            <input type="file" name="image" id="img"  onChange={handleChange}  placeholder="Choose Image "/>
+                            
+                            <label htmlFor='tag-select'>Select Problem Difficulty :</label>
+                            
+                            <select name="difficulty" id="tag-select" className='input-field' onChange={handleChange} required>
+                                <option value="" selected disabled>Select One </option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                            <br />
+
+                            <label htmlFor='answer'>Set Answer:</label>
+                            <input type="text" name="answer" id="answer" onChange={handleChange}  placeholder='Set Answer' required/>
                             
                             <input type="submit" value="Submit" className='problemBtn' onClick={handleSubmit} />
                         </form>
                     </div>
                 </div>
-                <div>
-
-                </div>
+                
             </div>
         </div>
     );

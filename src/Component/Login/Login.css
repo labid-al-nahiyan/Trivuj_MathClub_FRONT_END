@@ -1,10 +1,9 @@
 .form{
     display: inline-block;
-    
 }
 .form-login{
     display: inline-block;
-    margin-top: 35%;
+    margin-top: 200px;
 }
 .login-input-field{
     border: 0px;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { UserContext } from '../../App';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,6 +12,24 @@ const AddCampaign = () => {
     const [addCamp,setAddCamp] = useState([]);
     let navigate  = useNavigate();
     let location = useLocation();
+
+    const [trainer,setTrainer] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const res = await fetch('http://localhost:3010/admin/trainer/getTrainer');
+          const data = await res.json();
+
+          setTrainer(data);
+          console.log(data);
+          return data;
+        }
+
+      
+         fetchData()
+          .catch(console.error);;
+      
+    }, [])
 
     const handleChange = (event)=>{
 
@@ -44,20 +62,17 @@ const AddCampaign = () => {
             .then(data=>{
                 console.log(data)
                 console.log('hello2')
-                navigate(location?.state?.from || '/campaign', {replace:true})
+                navigate(location?.state?.from || '/adminHome', {replace:true})
             })
         } catch (error) {
             console.log(error);
-        }
-        
+        }    
     }
+
     return (
         <div>
-            <NavBar></NavBar>
             <div className='addCampaign-container'>
-                <div>
-
-                </div>
+                
                 <div className='addCampaign-form'>
                     <div>
                         <h1>Organize a Campaign</h1>
@@ -77,13 +92,29 @@ const AddCampaign = () => {
                             <textarea name="address" id="area" cols="30" rows="2" placeholder='Campaign place' onChange={handleChange}></textarea>
                             <textarea name="description" id="area" cols="100" rows="5" placeholder='Describe Your Campaign in details' onChange={handleChange}></textarea>
 
+                            <fieldset onClick={handleChange} className='select-trainer'>
+                                <legend>Choose Trainer</legend>
+                                
+                                {
+                                    trainer.map(trainer=>{
+                                        return <div>
+                                                    <input type="checkbox" id="trainer" name="interest" value="trainer"/>
+                                                    <label for="trainer">{trainer.NAME}</label>
+                                                </div>
+                                    })
+                                }
+
+                            </fieldset>
+
+
+
+
+
                             <input type="submit" value="Submit" className='campBtn' onClick={handleSubmit} />
                         </form>
                     </div>
                 </div>
-                <div>
-
-                </div>
+               
             </div>
         </div>
     );

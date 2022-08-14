@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../App';
-import './LogIn.css';
+import { UserContext } from '../../../App';
 
-const LogIn = ({state,setState}) => {
-    
+const AdminLogin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [aboutPassword,setAboutPassword]=useState('')
     const [passConfirmation,setPassConfirmation]=useState('')
@@ -24,7 +22,7 @@ const LogIn = ({state,setState}) => {
 
         }
         if (event.target.name === 'password') {
-            const isPasswordValid = event.target.value.length <100;
+            const isPasswordValid = event.target.value.length > 6;
             console.log(aboutPassword)
             const passwordHasNumber = /\d{1}/.test(event.target.value)
             const passwordInfo=!isPasswordValid?'*character must be more than 6':(!passwordHasNumber?'Must be a number(ex:1,2)':'');
@@ -43,12 +41,12 @@ const LogIn = ({state,setState}) => {
         }
     }
     
-    const LogInUser =async (event)=>{
+    const LogInAdmin =async (event)=>{
         event.preventDefault();
         console.log(user);
 
         try {
-            const res = await fetch('http://localhost:3010/member/verify', {
+            const res = await fetch('http://localhost:3010/admin/verify', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -66,28 +64,23 @@ const LogIn = ({state,setState}) => {
             else{
                 setLoggedInUser(data[0]);
                 console.log(data);
-                window.localStorage.setItem("token",JSON.stringify(data[0]))
-                setState(2)
-                navigate(location?.state?.from || '/', {replace:true})
+                window.localStorage.setItem("admintoken",JSON.stringify(data[0]))
+                navigate('/adminHome', {replace:true})
             }
    
         } catch (error) {
             console.log(error);
         }
     }
-    
     return (
-        
         <div>
             <div className="form-login-container">
                 <div className="form-login" style={{border:'0'}}>
                     <form>
                         <input className="login-input-field" onChange={handleChange} name="name" type="text" placeholder="User Name" required/>
-                        <input className="login-input-field" type="password" onChange={handleChange} name="password" placeholder="Password"required />
+                        <input className="login-input-field" type="password" onChange={handleChange} name="password" placeholder="Password" required />
                         <small style={{color:'red'}}>{wrongUser}</small>
-                        <input className="enterBtn"  type="submit" value="Log in" onClick={LogInUser}  /> <br></br>
-                         
-                        
+                        <input className="enterBtn"  type="submit" value="Log in" onClick={LogInAdmin}  /> <br></br>
                     </form>
                 </div>
             </div>
@@ -95,4 +88,4 @@ const LogIn = ({state,setState}) => {
     );
 };
 
-export default LogIn;
+export default AdminLogin;

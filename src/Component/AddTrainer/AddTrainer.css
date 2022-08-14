@@ -1,0 +1,59 @@
+.trainer-container{   
+    margin:8% 10% 8% 10% ;
+}
+
+body {
+    text-align: center;
+    
+}
+.addTrainer-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 0;
+}
+
+.trainer-input-field{
+    color: black;
+    display: block;
+    padding: 10px;
+    width: 95%;
+    margin: 5px;
+    font-size: 15px;
+}
+.trainer-input-field:focus{
+    outline: none;
+}
+#email,#institution,#expertize,#name{
+    margin: 10px;
+    height: 40px;
+    font-size: 20px;
+}
+.createBtn{
+    background-color:#27186b;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    width: 60%;
+    margin: 15px;
+    height: 45px;
+}
+.createBtn:hover{
+    background-color: #4620f1;
+}
+.form-design{
+    background-color: #27186b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.stateChangebtn{
+    background-color: white;
+    border: 0;
+    color: #19103F;
+    text-decoration: underline;
+}
+

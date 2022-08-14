@@ -1,7 +1,4 @@
-.addCampaign-container{
-    display: grid;
-    grid-template-columns: 20% auto 20%;
-}
+
 .addCampaign-form{
     border: 1px solid black;
     margin: 20px;
@@ -38,6 +35,10 @@
 #area{
     margin: 10px;
     padding: 10px;
+}
+.select-trainer{
+    text-align: left;
+    margin: 5px;
 }
 
 .campBtn{
