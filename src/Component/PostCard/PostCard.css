@@ -1,12 +1,16 @@
 .postCard-container{
     border: 1px solid black;
     border-radius: 20px;
-    margin: 0 5% 0 5% ;
+    margin:5% ;
     text-align: left;
+    
 }
 .post-header{
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding: 10px;
+}
+.post-title{
+    margin: 10px;
 }
 .post-description{
     padding: 0 10px 0 10px ;

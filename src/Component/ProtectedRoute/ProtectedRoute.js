@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from 'react';
+import { useEffect } from 'react';
 import { Navigate, Outlet, Route, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 
@@ -8,14 +9,17 @@ const ProtectedRoute=({ children, ...rest })=> {
     const location = useLocation();
     const navigate = useNavigate();
 
-    if(!loggedInUser.name){
-        return navigate(
-            '/login',{
-            state: { from: location }
-          })
-    }
-    else{
-        return children? children : <Outlet/>
-    }
+    
+      if(!loggedInUser.NAME){
+          return navigate(
+              '/',{
+              state: { from: location }
+            })
+      }
+      else{
+          return children? children : <Outlet/>
+      }
+    
+    
   }
 export default ProtectedRoute;

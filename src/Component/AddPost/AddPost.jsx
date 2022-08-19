@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import './AddPost.css'
 import { useEffect } from 'react';
+import moment from 'moment';
 
 const AddPost = () => {
 
@@ -18,7 +19,7 @@ const AddPost = () => {
     useEffect(()=>{
         const newAdd = { ...addPost }
         newAdd['organizerID'] = loggedInUser?.ID;
-        newAdd['uploadTime'] = Date().toLocaleString()
+        // newAdd['uploadTime'] = moment().format('hh:mm a,DD MMM YYYY')
 
         
         setAddPost(newAdd)
@@ -36,28 +37,24 @@ const AddPost = () => {
 
         console.log(addPost);  
         
-        
-        try {
-            fetch('http://localhost:3010/post/create', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(addPost)
-            })
-            .then((res)=>{
-                res.json()
-                console.log('hello');
-            })
-            .then(data=>{
-                console.log(data)
-                console.log('hello2')
-             //   navigate(location?.state?.from || '/problemset', {replace:true})
-            })
-        } catch (error) {
-            console.log(error);
-        }
+        const fetchData = async () => {
+            const res = await fetch('http://localhost:3010/post/create', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(addPost)
+                });
+            const data = await res.json();
+            console.log(data);
+            navigate('/post')
+          }
+
+          fetchData()
+          .catch (error=>{
+            console.log(error)
+          })
     }
 
     return (

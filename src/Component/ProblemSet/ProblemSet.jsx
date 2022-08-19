@@ -28,7 +28,7 @@ const ProblemSet =() => {
         // call the function
          fetchData()
           // make sure to catch any error
-          .catch(console.error);;
+          .catch(console.error);
       
     }, [])
 

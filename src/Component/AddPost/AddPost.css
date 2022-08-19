@@ -58,3 +58,6 @@ label{
     margin: 15px;
     height: 45px;
 }
+.createpostBtn:hover{
+    background-color: #371caf;
+}

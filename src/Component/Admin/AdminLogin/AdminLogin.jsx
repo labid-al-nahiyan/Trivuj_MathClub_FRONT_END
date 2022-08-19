@@ -9,7 +9,6 @@ const AdminLogin = () => {
     const [wrongUser,setWrongUser] = useState('')
     let navigate  = useNavigate();
     let location = useLocation();
-    let [user,setUser] = useState();
     
     const handleChange = (event) => {
 
@@ -34,16 +33,16 @@ const AdminLogin = () => {
             setPassConfirmation(confirmPass)
         }
         if (isFormValid) {
-            const newUserInfo = { ...user }
+            const newUserInfo = { ...loggedInUser }
             newUserInfo[event.target.name] = event.target.value;
-            setUser(newUserInfo)
+            setLoggedInUser(newUserInfo)
             
         }
     }
     
     const LogInAdmin =async (event)=>{
         event.preventDefault();
-        console.log(user);
+        console.log(loggedInUser);
 
         try {
             const res = await fetch('http://localhost:3010/admin/verify', {
@@ -52,7 +51,7 @@ const AdminLogin = () => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(loggedInUser)
             })
             
             const data = await res.json()  

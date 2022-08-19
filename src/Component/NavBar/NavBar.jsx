@@ -29,7 +29,7 @@ const NavBar = () => {
             </div>
             <div >
                 <ul className='menu menu-1'>
-                   { loggedInUser?.FIRST_NAME?<Link to={'/profile/'+loggedInUser.FIRST_NAME+loggedInUser.LAST_NAME} style={{ textDecoration: 'none'}}> <li className="list">{loggedInUser? loggedInUser.FIRST_NAME:''} {loggedInUser? loggedInUser.LAST_NAME:''}</li></Link>:''}
+                   { loggedInUser?.NAME?<Link to={'/profile/'+loggedInUser.NAME} style={{ textDecoration: 'none'}}> <li className="list">{loggedInUser? loggedInUser.NAME:''}</li></Link>:''}
                     <li className="list" onClick={logout} style={{height:'37px'}}>Log Out</li>
                 </ul>
             </div>

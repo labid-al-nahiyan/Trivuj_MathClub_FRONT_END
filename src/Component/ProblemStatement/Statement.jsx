@@ -28,10 +28,15 @@ const Statement = () => {
     return (
         <div>
             <div className='statement-container'>
-                <h3>{problem.TITLE} </h3>
-                <hr />
+                <div className='statement-que'>
+                    <h3>{problem.TITLE} </h3>
+                    <hr />
+                    <div>
+                        {parse(string)}
+                    </div>
+                </div>
                 <div>
-                    {parse(string)}
+
                 </div>
             </div>
         </div>

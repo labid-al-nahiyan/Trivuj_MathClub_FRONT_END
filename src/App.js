@@ -59,27 +59,25 @@ function App() {
 
           <Route path='/login' element={<Register/>}/>
           
-          <Route path='/problemset' element={<ProblemSet/>}/>          
+          <Route path='/problemset' element={<ProtectedRoute><ProblemSet/></ProtectedRoute>}/>          
 
-          <Route path='/contest' element={<Contest/>}/>
+          <Route path='/contest' element={<ProtectedRoute><Contest/></ProtectedRoute>}/>
 
-          <Route path='/campaign' element={<Campaign/>}/>
-
-          <Route path='/blog' element={<Blog></Blog>}/>
+          <Route path='/campaign' element={<ProtectedRoute><Campaign/></ProtectedRoute>}/>
           
           <Route path='/library' element={<Library></Library>}/>
 
           <Route path='/addProblem' element={<AddProblem></AddProblem>}/>
 
-          <Route path='/problemset/problem/:id' element={<Statement></Statement>}/>
+          <Route path='/problemset/problem/:id' element={<ProtectedRoute><Statement></Statement></ProtectedRoute>}/>
 
-          <Route path='/profile/:id' element={<Profile/>}></Route>
+          <Route path='/profile/:id' element={<ProtectedRoute><Profile/></ProtectedRoute>}></Route>
 
           <Route path='/addCampaign' element={<AddCampaign/>}></Route>
 
-          <Route path='/post' element={<Post/>}></Route>
+          <Route path='/post' element={<ProtectedRoute><Post/></ProtectedRoute>}></Route>
 
-          <Route path='/addPost' element={<AddPost/>}></Route>
+          <Route path='/addPost' element={<ProtectedRoute><AddPost/></ProtectedRoute>}></Route>
 
           <Route path='/leaderboard' element={<LeaderBoard></LeaderBoard>}></Route>
 
