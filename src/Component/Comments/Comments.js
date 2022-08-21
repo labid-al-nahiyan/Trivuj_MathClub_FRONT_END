@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Comments.css'
 
 const Comments = () => {
+
+
+    const [comments, setComments] = useState([])
+
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            const res = await fetch('http://localhost:3010/post/getPost');
+            const data = await res.json();
+  
+            setComments(data);
+            return data;
+          }
+           fetchData()
+           .catch(console.error);
+        
+    },[])
+    
     return (
         <div>
             <div className='comment-container'>
