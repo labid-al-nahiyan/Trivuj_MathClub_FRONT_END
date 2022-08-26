@@ -13,6 +13,7 @@ const Statement = () => {
     const [string, setString ] = useState('');
     const [submit,setSubmit] = useState({});
     const [loggedInUser,setLoggedInUser] = useContext(UserContext);
+    const [verdictStatus, setVerdictStatus] = useState('');
     const [ans,setAns] = useState('');
     const parse = require('html-react-parser')
     let navigate  = useNavigate();
@@ -74,7 +75,7 @@ const Statement = () => {
                 .then(data=>{
                     console.log(data)
                     console.log('hello2')
-                    navigate(location?.state?.from || '/', {replace:true})
+                 //   navigate(location?.state?.from || '/', {replace:true})
                 })
             } catch (error) {
                 console.log(error);
@@ -97,10 +98,12 @@ const Statement = () => {
         if(submittedAns===problem.ANSWER){
             console.log("Answer Match");
             newUserInfo['verdict'] = 'T';
+            setVerdictStatus('Correct Answer')
         }
         else{
             console.log("Answer Dont match")
             newUserInfo['verdict'] = 'F';
+            setVerdictStatus('Wrong Answer')
         }
         setSubmit(newUserInfo);
         
@@ -118,9 +121,12 @@ const Statement = () => {
                         {parse(string)}
                     </div>
                 </div>
-                <div >
+                <div  className='statement-ans'>
                     <input type="text" name='answer' placeholder='Enter Your Answer' onChange={handleChange} />
                     <input type="submit" value="Submit" onClick={handleSubmit}/>
+                    <div style={submit['verdict']==='F'?{color:'red'}:{color:'green'}}>
+                        <p>{verdictStatus}</p>
+                    </div>
                 </div>
             </div>
         </div>

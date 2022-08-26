@@ -1,0 +1,20 @@
+.container{
+    position: fixed;
+    top: 17%;
+    left: 30%;
+    width: 600px;
+    padding: 5px;
+    align-items: left;
+    background-color: white;
+    box-shadow: 0 5px 30px rgba(0,0,0,.3);
+    z-index: 2;
+}
+.popup-input-field{
+    margin: 5px;
+    margin-top: -10px;
+}
+.flex-display{
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+}

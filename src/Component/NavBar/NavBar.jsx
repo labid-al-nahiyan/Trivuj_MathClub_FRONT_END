@@ -23,7 +23,7 @@ const NavBar = () => {
                        <Link to ='/campaign' style={{ textDecoration: 'none' }}><li className='list'>Campaign</li></Link> 
                        <Link to ='/post'style={{ textDecoration: 'none' }}><li className='list'>Post</li></Link> 
                        <Link to ='/leaderboard'style={{ textDecoration: 'none' }}><li className='list'>Leaderboard</li></Link> 
-
+                       <Link to ='/submission' style={{ textDecoration: 'none' }}><li className='list'>Submission</li></Link> 
 
                     </ul>
             </div>

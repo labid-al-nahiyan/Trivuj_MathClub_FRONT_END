@@ -1,12 +1,16 @@
 .statement-container{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 60% auto;
     margin: 5%;
     text-align: left;
     padding: 20px;
     min-height: 600px;
 }
 .statement-que{
-    border: 1px solid black;
+    border-right: 1px solid black;
+    padding: 10px;
+}
+.statement-ans{
+    margin: 5%;
     padding: 10px;
 }

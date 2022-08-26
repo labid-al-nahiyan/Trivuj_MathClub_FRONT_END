@@ -6,7 +6,7 @@ import './PostCard.css'
 const PostCard = ({post}) => {
     const [date,setDate] = useState(Date().toLocaleString())
     const [comment,setComment] = useState(false);
-    const {POSTER_ID,NAME,TITLE,DESCRIPTION,POSTDATE} = post
+    const {ID,POSTER_ID,NAME,TITLE,DESCRIPTION,POSTDATE} = post
     return (
         <div>
             <div className='postCard-container'>
@@ -30,7 +30,7 @@ const PostCard = ({post}) => {
                         <input type='button' id='post-comment-link' value='comment' onClick={()=>setComment(!comment)}></input>
                     </div>
                 </div>
-                {comment?<Comments postId = {POSTER_ID}></Comments>:''} 
+                {comment?<Comments postId = {ID}></Comments>:''} 
                 
             </div>
         </div>

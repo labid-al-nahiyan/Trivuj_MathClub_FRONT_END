@@ -28,9 +28,7 @@ const Post = () => {
           }
   
         
-          // call the function
            fetchData()
-            // make sure to catch any error
             .catch(console.error);
         
     },[])
@@ -55,14 +53,10 @@ const Post = () => {
             const data = await res.json()  
             
             console.log(data)
-        //     if(data.length === 0){
-        //    //     setPostUpdate('NO Post Found')
-        //     }
-        //     else{
-                setPosts(data)
-                console.log(data);                
-                navigate(location?.state?.from || '/post', {replace:true})
-           // }
+        
+            setPosts(data)
+            console.log(data);                
+          
    
         } catch (error) {
             console.log(error);
@@ -78,10 +72,7 @@ const Post = () => {
             return data;
           }
   
-        
-          // call the function
            fetchData()
-            // make sure to catch any error
             .catch(console.error);
         
     }

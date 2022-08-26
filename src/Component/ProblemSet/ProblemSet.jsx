@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 import NavBar from '../NavBar/NavBar';
 import Problem from '../Problem/Problem'
@@ -11,7 +11,8 @@ const ProblemSet =() => {
     const [tag,setTag] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [problems, setProblems] = useState([])
-
+    let navigate  = useNavigate();
+    let location = useLocation();
 
     
     useEffect(() => {
@@ -24,10 +25,7 @@ const ProblemSet =() => {
           return data;
         }
 
-      
-        // call the function
          fetchData()
-          // make sure to catch any error
           .catch(console.error);
       
     }, [])
@@ -40,9 +38,25 @@ const ProblemSet =() => {
         setTag(newTag)
   
     }
-    const filterProblem = ()=>{
+    const filterProblem = async()=>{
         console.log('fileter')
         console.log(tag);
+        try {
+            const res = await fetch('http://localhost:3010/problemset/getProblem/filter', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(tag)
+                })
+            const data =await res.json();
+            console.log(data)
+            setProblems(data)
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
     return (
         <div>
@@ -51,15 +65,14 @@ const ProblemSet =() => {
             <div className='problem-container'>
                 <div className='problem-filter'>
 
-                    {/* <input className="filter-field" onChange={handleChange} name="filter" type="text" placeholder="Search Problem" required/> */}
                      <div className='problem-select'>
                             <label htmlFor="tag-select">Select Tag</label>
                             <br></br>
-                            <select name="problems" id="tag-select" onChange={handleChange}>
+                            <select name="tag" id="tag-select" onChange={handleChange}>
                                 <option value="numberTheory">Number Theory</option>
                                 <option value="Geometry">Geometry</option>
                                 <option value="Trigonometry">Trigonometry</option>
-                                <option value="Calculus">Calculus</option>
+                                <option value="Algebra">Algebra</option>
                             </select>
 
                      </div>

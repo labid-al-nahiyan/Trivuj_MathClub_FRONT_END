@@ -27,6 +27,7 @@ import LeaderBoard from './Component/LeaderBoard/LeaderBoard'
 import Admin from './Component/Admin/Admin';
 import AdminHome from './Component/Admin/AdminHome/AdminHome';
 import Statement from './Component/ProblemStatement/Statement';
+import Submission from './Component/Submission/Submission';
 
 export   const UserContext=createContext();
 
@@ -80,6 +81,9 @@ function App() {
           <Route path='/addPost' element={<ProtectedRoute><AddPost/></ProtectedRoute>}></Route>
 
           <Route path='/leaderboard' element={<LeaderBoard></LeaderBoard>}></Route>
+
+          <Route path='/submission' element={<Submission></Submission>}></Route>
+
 
           <Route path="*" element={<p>There's nothing here: 404!</p>} />    
 
